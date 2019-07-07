@@ -1,0 +1,5 @@
+# vscode working space
+.vscode/
+
+# python cache
+__pycache__/
