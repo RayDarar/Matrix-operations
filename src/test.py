@@ -28,6 +28,7 @@ def test_createObjects():
     print("Test passed")
     pass
 
+
 def test_accessData():
     try:
         temp = Matrix()
@@ -113,6 +114,17 @@ def test_determinant():
 
 
 def test_inverse():
+    try:
+        temp = Matrix.random(3, 3)
+        print("Matrix:\n", temp, sep="")
+
+        inverse = temp.inverse()
+
+        print("Inverse:\n", inverse)
+        print("Test passed")
+    except:
+        print("Test failed")
     pass
 
-test_determinant()
+
+test_inverse()

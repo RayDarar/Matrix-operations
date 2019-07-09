@@ -4,7 +4,6 @@
 
 import random as rnd
 
-
 class Matrix(object):
     def __init__(self, n=1, m=1, data=list()):
         if n >= 1 and m >= 1:
@@ -126,4 +125,46 @@ class Matrix(object):
             
         raise Exception("")
 
+    def coofactor(self, i, j):
+        if self.hasDeterminant():
+            subMatrix = Matrix(self.n - 1, self.n - 1)
+
+            iTemp, jTemp = 0, 0
+
+            for iSource in range(self.n):
+                if iSource == i:
+                    continue
+
+                for jSource in range(self.n):
+                    if jSource != j:
+                        subMatrix[iTemp][jTemp] = self[iSource][jSource]
+                        jTemp += 1
+                jTemp = 0
+                iTemp += 1
+            
+            return (-1) ** ((i + 1) + (j + 1)) * subMatrix.determinant()
+
+        raise Exception("")
+
+    def inverse(self):
+        if self.hasDeterminant():
+            det = self.determinant()
+            if det != 0:
+                coofactors = Matrix(self.n, self.n)
+
+                for i in range(self.n):
+                    for j in range(self.n):
+                        coofactors[i][j] = self.coofactor(i, j)
+
+                return (1 / det) * coofactors.transpose()
+        raise Exception("")
+
+    def __str__(self):
+        result = ""
+        for i in range(self.n):
+            row = ""
+            for j in range(self.m):
+                row += str(self[i][j]) + " "
+            result += row.strip() + "\n"
+        return result[:-1]
     pass

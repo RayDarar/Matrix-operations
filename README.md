@@ -4,8 +4,8 @@ Simple matrix operations implemented in python. <br>Possible operations: summati
 ## Task list
 - [x] Plan
 - [x] Define class
-- [ ] Write tests
-- [ ] Implement logic
+- [x] Write tests
+- [x] Implement logic
 
 ## Licence
 This repository is licensed under the MIT license - see the [LICENSE](LICENSE) for the details.
