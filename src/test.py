@@ -28,7 +28,6 @@ def test_createObjects():
     print("Test passed")
     pass
 
-
 def test_accessData():
     try:
         temp = Matrix()
@@ -72,7 +71,7 @@ def test_summation():
     try:
         temp1 = Matrix.generateFrom([[1]])
         temp2 = Matrix.generateFrom([[2]])
-        temp3 = temp1 + temp2
+        temp3 = temp1 + temp2;
 
         if temp3[0][0] == 3:
             print("Test passed")
@@ -84,22 +83,6 @@ def test_summation():
 
 
 def test_multiplication():
-    try:
-        temp1 = Matrix.generateFrom([[1, 2], [2, 1], [2, 2]])
-        temp2 = Matrix.generateFrom([[3, 3, 3], [3, 3, 3]])
-
-        temp2 = (1 / 3) * temp2
-
-        if temp2[0][0] != 1:
-            raise Exception("")
-
-        temp3 = temp1 * temp2
-
-        if (temp3[0][0] != 3):
-            raise Exception("")
-        print("Test passed")
-    except:
-        print("Test failed")
     pass
 
 
@@ -110,4 +93,4 @@ def test_determinant():
 def test_inverse():
     pass
 
-test_multiplication()
+test_summation()
