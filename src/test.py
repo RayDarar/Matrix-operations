@@ -125,6 +125,3 @@ def test_inverse():
     except:
         print("Test failed")
     pass
-
-
-test_inverse()

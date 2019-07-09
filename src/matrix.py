@@ -57,10 +57,11 @@ class Matrix(object):
     def transpose(self):
         result = Matrix(self.m, self.n)
 
-        for i in range(self.n - 1, -1, -1):
-            temp = self[i]
-            for j in range(self.m):
-                result[j][i] = temp[j]
+        for row in range(self.n): # Each row
+            for col in range(self.m): # Each column
+                result[col][row] = self[row][col]
+            pass
+        
         return result
 
     def mul(self, other):
