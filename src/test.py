@@ -103,10 +103,16 @@ def test_multiplication():
 
 
 def test_determinant():
+    try:
+        temp = Matrix.generateFrom([[1, 2, 1], [2, 2, 2], [1, 2, 1]])
+        print("Determinant:", temp.determinant())
+        print("Test passed")
+    except:
+        print("Test failed")
     pass
 
 
 def test_inverse():
     pass
 
-test_summation()
+test_determinant()

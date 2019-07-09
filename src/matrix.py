@@ -93,4 +93,37 @@ class Matrix(object):
     def __rmul__(self, other):
         return self.mul(other)
 
+    def hasDeterminant(self):
+        return self.n == self.m
+
+    def determinant(self):
+        if self.hasDeterminant():
+            # a
+            if self.n == 1:
+                return self[0][0]
+            # ad - bc
+            elif self.n == 2:
+                return self[0][0] * self[1][1] - self[0][1] * self[1][0]
+            # det(A) = a11 * A11 + a12 * A12 .... a1n * A1n
+            else:
+                result = 0
+                aList = self[0]
+                for n in range(self.n):
+                    temp = Matrix(self.n - 1, self.n - 1)
+
+                    iTemp, jTemp = 0, 0
+
+                    for iSource in range(1, self.n):
+                        for jSource in range(self.n):
+                            if jSource != n:
+                                temp[iTemp][jTemp] = self[iSource][jSource]
+                                jTemp += 1
+                        iTemp += 1
+                        jTemp = 0
+
+                    result += aList[n] * temp.determinant()
+                return result
+            
+        raise Exception("")
+
     pass
